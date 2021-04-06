@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Button avanzarBtn,habilidadBtn;
     private BufferedWriter bwriter;
     private int posy, posx, vel;
+    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
         avanzarBtn = findViewById(R.id.avanzarBtn);
         habilidadBtn = findViewById(R.id.habilidadBtn);
+
+        username = getSharedPreferences("username",MODE_PRIVATE).getString("username", "NO USER");
 
         new Thread(
                 ()-> {
@@ -60,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
     public void initClient() {
         //se envia el recordatorio en un json
         Gson gson = new Gson();
-        Coordenada coordenada = new Coordenada(posx, posy, vel);
+        Coordenada coordenada = new Coordenada(posx, posy, vel, username);
         String conexion = gson.toJson(coordenada);
 
         new Thread(()-> {

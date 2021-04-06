@@ -3,11 +3,13 @@ package com.example.caracolesclient;
 public class Coordenada {
 
     private int posx, posy, vel;
+    private String nombre;
 
-    public Coordenada(int posx, int posy, int vel) {
+    public Coordenada(int posx, int posy, int vel, String nombre) {
         this.posx = posx;
         this.posy = posy;
         this.vel = vel;
+        this.nombre = nombre;
     }
 
     public int getPosx() {
