@@ -18,7 +18,7 @@ import java.net.UnknownHostException;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button avanzarBtn,habilidadBtn;
+    private Button upBtn,rightBtn, leftBtn;
     private BufferedWriter bwriter;
     private int posy, posx, vel;
     private String username, jugador, avanzar;
@@ -28,8 +28,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        avanzarBtn = findViewById(R.id.avanzarBtn);
-        habilidadBtn = findViewById(R.id.habilidadBtn);
+        upBtn = findViewById(R.id.upBtn);
+        rightBtn = findViewById(R.id.rightBtn);
+        leftBtn = findViewById(R.id.leftBtn);
 
         username = getSharedPreferences("username",MODE_PRIVATE).getString("username", "NO USER");
 
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }).start();
 
-        avanzarBtn.setOnClickListener(
+        leftBtn.setOnClickListener(
                 (v) -> {
 
                     Gson gson = new Gson();
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
         );
-        habilidadBtn.setOnClickListener(
+        upBtn.setOnClickListener(
                 (v) -> {
                 }
         );
