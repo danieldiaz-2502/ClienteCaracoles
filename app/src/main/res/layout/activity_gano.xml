@@ -4,43 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/reg"
-    tools:context=".RegistroActivity">
+    android:background="@drawable/wpviolet"
+    tools:context=".Gano">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="300dp"
         android:layout_height="500dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="115dp">
 
-        <EditText
-            android:id="@+id/nombreEdit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="252dp"
-            android:ems="10"
-            android:hint="Nickname"
-            android:inputType="textPersonName"
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="120dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="320dp"
+            android:background="@drawable/botones"
+            android:fontFamily="@font/signika_negative_semibold"
+            android:text="Volver a jugar"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/registrarBtn"
+            android:id="@+id/button4"
             android:layout_width="120dp"
             android:layout_height="44dp"
-            android:layout_marginBottom="108dp"
+            android:layout_marginBottom="68dp"
             android:background="@drawable/botones"
             android:fontFamily="@font/signika_negative_semibold"
-            android:text="Registrarse"
+            android:text="Salir"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

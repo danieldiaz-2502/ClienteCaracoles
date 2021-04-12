@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         new Thread(
                 ()-> {
                     try {
-                        Socket socket = new Socket("192.168.1.1", 5000);
+                        Socket socket = new Socket("192.168.0.10", 5000);
                         InputStream is = socket.getInputStream();
                         OutputStream os = socket.getOutputStream();
                         OutputStreamWriter osw = new OutputStreamWriter(os);
