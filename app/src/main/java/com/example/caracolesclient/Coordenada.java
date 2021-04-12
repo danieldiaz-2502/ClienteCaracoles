@@ -2,37 +2,28 @@ package com.example.caracolesclient;
 
 public class Coordenada {
 
-    private int posx, posy, vel;
-    private String nombre;
+    private String jugador,avanzar;
 
-    public Coordenada(int posx, int posy, int vel, String nombre) {
-        this.posx = posx;
-        this.posy = posy;
-        this.vel = vel;
-        this.nombre = nombre;
+    public Coordenada(String avanzar, String jugador) {
+
+        this.jugador = jugador;
+        this.avanzar = avanzar;
+
     }
 
-    public int getPosx() {
-        return posx;
+    public String getJugador() {
+        return jugador;
     }
 
-    public void setPosx(int posx) {
-        this.posx = posx;
+    public void setJugador(String jugador) {
+        this.jugador = jugador;
     }
 
-    public int getPosy() {
-        return posy;
+    public String getAvanzar() {
+        return avanzar;
     }
 
-    public void setPosy(int posy) {
-        this.posy = posy;
-    }
-
-    public int getVel() {
-        return vel;
-    }
-
-    public void setVel(int vel) {
-        this.vel = vel;
+    public void setAvanzar(String avanzar) {
+        this.avanzar = avanzar;
     }
 }

@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Button avanzarBtn,habilidadBtn;
     private BufferedWriter bwriter;
     private int posy, posx, vel;
-    private String username;
+    private String username, jugador, avanzar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +51,15 @@ public class MainActivity extends AppCompatActivity {
 
         avanzarBtn.setOnClickListener(
                 (v) -> {
+
+                    Gson gson = new Gson();
+                    jugador = "j1";
+                    avanzar = "si";
+                    Coordenada coordenada = new Coordenada(avanzar, jugador);
+                    String conexion = gson.toJson(coordenada);
+                    
+                    sendMessage(conexion);
+
                 }
         );
         habilidadBtn.setOnClickListener(
@@ -60,16 +69,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void initClient() {
-        //se envia el recordatorio en un json
-        Gson gson = new Gson();
-        Coordenada coordenada = new Coordenada(posx, posy, vel, username);
-        String conexion = gson.toJson(coordenada);
+    public void sendMessage(String msg) {
 
         new Thread(()-> {
             try {
-                //se hace el envio como tal
-                bwriter.write(conexion+"\n");
+                bwriter.write(msg +"\n");
                 bwriter.flush();
             } catch (IOException e) {
                 e.printStackTrace();
