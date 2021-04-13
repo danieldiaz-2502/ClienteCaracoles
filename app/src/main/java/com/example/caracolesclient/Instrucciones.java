@@ -5,16 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 
-public class Gano extends AppCompatActivity {
+public class Instrucciones extends AppCompatActivity {
 
-    private Button vjBtn, exBtn;
+    private Button ibackBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gano);
+        setContentView(R.layout.activity_instrucciones);
 
-        vjBtn = findViewById(R.id.vjBtn);
-        exBtn = findViewById(R.id.exBtn);
+        ibackBtn = findViewById(R.id.ibackBtn);
     }
 }
