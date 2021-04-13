@@ -22,7 +22,7 @@
             android:layout_marginTop="320dp"
             android:background="@drawable/botones"
             android:fontFamily="@font/signika_negative_semibold"
-            android:text="Intentar otra vez"
+            android:text="Volver a jugar"
             android:textAllCaps="false"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"

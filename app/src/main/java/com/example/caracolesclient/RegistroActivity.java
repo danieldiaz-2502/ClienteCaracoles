@@ -25,7 +25,7 @@ public class RegistroActivity extends AppCompatActivity {
         registrarBtn.setOnClickListener(
                 (v) -> {
                     String username = nombreEdit.getText().toString();
-                    Intent i = new Intent(this,MainActivity.class);
+                    Intent i = new Intent(this, Start.class);
                     SharedPreferences preferences = getSharedPreferences("username", MODE_PRIVATE);
 
                     preferences.edit().putString("username",username).apply();

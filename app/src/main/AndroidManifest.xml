@@ -11,10 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CaracolesClient">
-        <activity android:name=".Instrucciones"></activity>
+        <activity android:name=".Start"></activity>
+        <activity android:name=".Instrucciones" />
         <activity android:name=".Perdio" />
-        <activity android:name=".Gano" />
+        <activity android:name=".RegistroActivity"></activity>
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
