@@ -21,10 +21,10 @@ import java.net.UnknownHostException;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 
-    private Button inicioBtn, insBtn;
-    private BufferedWriter bwriter;
+    private Button inicioBtn, insBtn, upBtn, leftBtn;
     private int posy, posx, vel;
     private String username, jugador, avanzar;
+    TCPSingleton tcp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,47 +33,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         inicioBtn = findViewById(R.id.inicioBtn);
         insBtn = findViewById(R.id.insBtn);
+        upBtn = findViewById(R.id.upBtn);
+        leftBtn = findViewById(R.id.leftBtn);
 
 
         inicioBtn.setOnClickListener(this);
         insBtn.setOnClickListener(this);
 
+        tcp = TCPSingleton.getInstance();
+
 
         username = getSharedPreferences("username", MODE_PRIVATE).getString("username", "NO USER");
-
-        new Thread(
-                () -> {
-                    try {
-                        Socket socket = new Socket("192.168.0.10", 5000);
-                        InputStream is = socket.getInputStream();
-                        OutputStream os = socket.getOutputStream();
-                        OutputStreamWriter osw = new OutputStreamWriter(os);
-                        bwriter = new BufferedWriter(osw);
-                        Log.e("mensaje", " " + bwriter);
-                    } catch (UnknownHostException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }).start();
-
-       /* leftBtn.setOnClickListener(
-                (v) -> {
-
-                    Gson gson = new Gson();
-                    jugador = "j1";
-                    avanzar = "si";
-                    Coordenada coordenada = new Coordenada(avanzar, jugador);
-                    String conexion = gson.toJson(coordenada);
-
-                    sendMessage(conexion);
-
-                }
-        );
-        upBtn.setOnClickListener(
-                (v) -> {
-                }
-        );*/
 
     }
     @Override
@@ -95,14 +65,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void sendMessage(String msg) {
 
-        new Thread(() -> {
-            try {
-                bwriter.write(msg + "\n");
-                bwriter.flush();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }).start();
+        tcp.enviarMensaje(msg);
+
     }
 
 
