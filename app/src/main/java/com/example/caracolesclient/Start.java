@@ -47,6 +47,21 @@ public class Start extends AppCompatActivity {
 
                 }
         );
+
+        rightBtn.setOnClickListener(
+                (v) -> {
+
+                    Gson gson = new Gson();
+                    jugador = "j1";
+                    avanzar = "goRight";
+                    Coordenada coordenada = new Coordenada(avanzar, jugador);
+                    String conexion = gson.toJson(coordenada);
+
+                    sendMessage(conexion);
+
+                }
+        );
+
         upBtn.setOnClickListener(
                 (v) -> {
                     Gson gson = new Gson();
