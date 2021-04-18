@@ -78,6 +78,7 @@ public class Start extends AppCompatActivity {
 
     }
 
+    
 
    /* public void ganador(Perder perder) {
         Log.e("message", perder.getGanar());
