@@ -2,6 +2,7 @@ package com.example.caracolesclient;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -9,19 +10,13 @@ import android.widget.Button;
 import com.google.gson.Gson;
 
 import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.net.Socket;
-import java.net.UnknownHostException;
 
 public class Start extends AppCompatActivity {
 
     private Button upBtn,rightBtn, leftBtn;
     private BufferedWriter bwriter;
     private String username, jugador, avanzar;
-    private TCPSingleton tcp;
+    TCPSingleton tcp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,12 +69,28 @@ public class Start extends AppCompatActivity {
                 }
         );
 
+
+
     }
 
     public void sendMessage(String msg) {
-
         tcp.enviarMensaje(msg);
 
     }
 
+
+   /* public void ganador(Perder perder) {
+        Log.e("message", perder.getGanar());
+        switch (perder.getGanar()){
+            case "Ganó J1":
+                Intent s = new Intent(this, Perdiov.class);
+                startActivity(s);
+                Log.e("", "" + "funciono");
+                break;
+            case "Ganó J2":
+                Intent a = new Intent(this, Perdioy.class);
+                startActivity(a);
+                break;
+        }
+    }*/
 }

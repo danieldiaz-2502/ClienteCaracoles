@@ -7,9 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class Perdio extends AppCompatActivity implements View.OnClickListener{
+public class Perdiov extends AppCompatActivity implements View.OnClickListener{
 
     private Button ioBtn, exitBtn;
+    private TCPSingleton tcp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,7 +18,7 @@ public class Perdio extends AppCompatActivity implements View.OnClickListener{
 
         ioBtn = findViewById(R.id.ioBtn);
         exitBtn = findViewById(R.id.exitBtn);
-
+        tcp = TCPSingleton.getInstance();
         ioBtn.setOnClickListener(this);
         exitBtn.setOnClickListener(this);
 
