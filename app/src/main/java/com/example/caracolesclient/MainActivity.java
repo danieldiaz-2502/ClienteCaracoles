@@ -21,9 +21,8 @@ import java.net.UnknownHostException;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 
-    private Button inicioBtn, insBtn, upBtn, leftBtn;
-    private int posy, posx, vel;
-    private String username, jugador, avanzar;
+    private Button inicioBtn, insBtn;
+    private String username;
     TCPSingleton tcp;
 
     @Override
@@ -33,8 +32,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         inicioBtn = findViewById(R.id.inicioBtn);
         insBtn = findViewById(R.id.insBtn);
-        upBtn = findViewById(R.id.upBtn);
-        leftBtn = findViewById(R.id.leftBtn);
 
 
         inicioBtn.setOnClickListener(this);

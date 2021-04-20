@@ -14,8 +14,7 @@ import java.io.BufferedWriter;
 public class Start extends AppCompatActivity {
 
     private Button upBtn,rightBtn, leftBtn;
-    private BufferedWriter bwriter;
-    private String username, jugador, avanzar;
+    private String jugador, avanzar;
     TCPSingleton tcp;
 
     @Override

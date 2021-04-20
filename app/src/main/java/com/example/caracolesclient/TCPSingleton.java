@@ -40,7 +40,7 @@ public class TCPSingleton extends Thread{
         new Thread(
                 () -> {
                     try {
-                        socket = new Socket("192.168.0.10", 5000);
+                        socket = new Socket("192.168.0.7", 6000);
 
 
                         InputStream is = socket.getInputStream();
