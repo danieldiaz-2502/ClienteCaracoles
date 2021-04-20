@@ -2,7 +2,7 @@ package com.example.caracolesclient;
 
 public class Coordenada {
 
-    private String jugador,avanzar;
+    private String jugador,avanzar, username;
 
     public Coordenada(String avanzar, String jugador) {
 

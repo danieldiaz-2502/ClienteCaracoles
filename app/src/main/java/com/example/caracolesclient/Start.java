@@ -14,7 +14,7 @@ import java.io.BufferedWriter;
 public class Start extends AppCompatActivity {
 
     private Button upBtn,rightBtn, leftBtn;
-    private String jugador, avanzar;
+    private String jugador, avanzar, username;
     TCPSingleton tcp;
 
     @Override
@@ -27,12 +27,13 @@ public class Start extends AppCompatActivity {
         leftBtn = findViewById(R.id.leftBtn);
 
         tcp = TCPSingleton.getInstance();
+        username = getSharedPreferences("username", MODE_PRIVATE).getString("username", "NO USER");
 
         leftBtn.setOnClickListener(
                 (v) -> {
 
                     Gson gson = new Gson();
-                    jugador = "j1";
+                    jugador = username;
                     avanzar = "goLeft";
                     Coordenada coordenada = new Coordenada(avanzar, jugador);
                     String conexion = gson.toJson(coordenada);
@@ -46,7 +47,7 @@ public class Start extends AppCompatActivity {
                 (v) -> {
 
                     Gson gson = new Gson();
-                    jugador = "j1";
+                    jugador = username;
                     avanzar = "goRight";
                     Coordenada coordenada = new Coordenada(avanzar, jugador);
                     String conexion = gson.toJson(coordenada);
@@ -59,7 +60,7 @@ public class Start extends AppCompatActivity {
         upBtn.setOnClickListener(
                 (v) -> {
                     Gson gson = new Gson();
-                    jugador = "j1";
+                    jugador = username;
                     avanzar = "goUP";
                     Coordenada coordenada = new Coordenada(avanzar, jugador);
                     String conexion = gson.toJson(coordenada);
@@ -67,30 +68,12 @@ public class Start extends AppCompatActivity {
                     sendMessage(conexion);
                 }
         );
-
-
-
     }
+
 
     public void sendMessage(String msg) {
         tcp.enviarMensaje(msg);
-
     }
 
-    
 
-   /* public void ganador(Perder perder) {
-        Log.e("message", perder.getGanar());
-        switch (perder.getGanar()){
-            case "Ganó J1":
-                Intent s = new Intent(this, Perdiov.class);
-                startActivity(s);
-                Log.e("", "" + "funciono");
-                break;
-            case "Ganó J2":
-                Intent a = new Intent(this, Perdioy.class);
-                startActivity(a);
-                break;
-        }
-    }*/
 }

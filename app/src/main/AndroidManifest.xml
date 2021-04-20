@@ -12,8 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CaracolesClient">
         <activity android:name=".Start"></activity>
-        <activity android:name=".Instrucciones" />
-        <activity android:name=".Perdiov" />
         <activity android:name=".RegistroActivity"></activity>
         <activity android:name=".MainActivity">
 

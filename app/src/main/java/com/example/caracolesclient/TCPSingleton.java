@@ -15,10 +15,9 @@ import java.net.UnknownHostException;
 
 public class TCPSingleton extends Thread{
 
-    //private Start ref;
     private Socket socket;
     private BufferedWriter bwriter;
-    //private BufferedReader breader;
+
 
     private static TCPSingleton unicainstancia;
 
@@ -46,24 +45,12 @@ public class TCPSingleton extends Thread{
                         InputStream is = socket.getInputStream();
                         OutputStream os = socket.getOutputStream();
 
-                        /*InputStreamReader isr = new InputStreamReader(is);
-                        BufferedReader breader = new BufferedReader(isr);*/
 
                         OutputStreamWriter osw = new OutputStreamWriter(os);
                         bwriter = new BufferedWriter(osw);
                         Log.e("mensaje", " " + bwriter);
 
 
-
-                        /*while (true) {
-
-                            String ganar = breader.readLine();
-
-                            Gson gson = new Gson();
-                            Perder perder = gson.fromJson(ganar, Perder.class);
-                            ref.ganador(perder);
-
-                        }*/
 
                     } catch (UnknownHostException e) {
                         e.printStackTrace();

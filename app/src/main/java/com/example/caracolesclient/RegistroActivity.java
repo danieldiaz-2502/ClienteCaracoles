@@ -29,7 +29,6 @@ public class RegistroActivity extends AppCompatActivity {
                     SharedPreferences preferences = getSharedPreferences("username", MODE_PRIVATE);
 
                     preferences.edit().putString("username",username).apply();
-
                     startActivity(i);
         }
         );

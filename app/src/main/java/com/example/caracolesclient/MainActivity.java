@@ -21,8 +21,7 @@ import java.net.UnknownHostException;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 
-    private Button inicioBtn, insBtn;
-    private String username;
+    private Button inicioBtn;
     TCPSingleton tcp;
 
     @Override
@@ -31,16 +30,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         inicioBtn = findViewById(R.id.inicioBtn);
-        insBtn = findViewById(R.id.insBtn);
-
-
         inicioBtn.setOnClickListener(this);
-        insBtn.setOnClickListener(this);
 
         tcp = TCPSingleton.getInstance();
 
-
-        username = getSharedPreferences("username", MODE_PRIVATE).getString("username", "NO USER");
 
     }
     @Override
@@ -51,18 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent a = new Intent(this, RegistroActivity.class);
                 startActivity(a);
                 break;
-
-            case R.id.insBtn:
-
-                Intent r = new Intent(this,Instrucciones.class);
-                startActivity(r);
-                break;
         }
-    }
-
-    public void sendMessage(String msg) {
-        tcp.enviarMensaje(msg);
-
     }
 
 
